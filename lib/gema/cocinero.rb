@@ -63,3 +63,24 @@ attr_accessor :experiencia, :contador
 	end
 
 end
+
+
+	@cocinero = Cocinero.new
+	mutex = Mutex.new
+
+	@t1 = Thread.new do
+		for i in 0..10
+			@cocinero.uno_mas
+			sleep 0.2
+		end
+	end
+
+	@t2 = Thread.new do
+		for i in 0..10
+			@cocinero.degustar_uno
+			sleep 0.2
+		end
+	end
+
+	@t2.join
+	@t1.join
