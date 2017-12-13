@@ -13,6 +13,23 @@ RSpec.describe Gema do
 
   describe Cocinero do
 
+	before :each do
+
+		cocinero = Cocinero.new
+
+	end
+
+	if "Cocinero atributo experiencia" do
+
+		expect(cocinero.experiencia).to eq(0)
+
+	end
+
+	if "Cocinero atributo contador de platos" do
+
+		expect(cocinero.contador).to eq(0)
+
+	end
 
   end
 
