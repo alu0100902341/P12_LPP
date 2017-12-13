@@ -33,7 +33,18 @@ RSpec.describe Gema do
 
 	it "Método uno_mas que añade un año de experiencia" do
 
-		expect(@cocinero.uno_mas).to eq(1)
+		@cocinero.uno_mas
+		expect(@cocinero.experiencia).to eq(1)
+
+	end
+
+	it "Método degustar 1 que degusta un plato del cocinero" do
+		
+		@cocinero.uno_mas
+		@cocinero.uno_mas
+		@cocinero.uno_mas
+		@cocinero.degustar_uno
+		expect(@cocinero.contador).to eq(0)
 
 	end
 
