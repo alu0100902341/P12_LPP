@@ -1,35 +1,35 @@
 class Cocinero
 
-attr_accessor :experiencia, :contador
+attr_accessor :experiencia, :contador, :edad
 
 	def initialize
 
-		@experiencia = 0
+		@edad = 36
+		@experiencia = "pinche"
 		@contador = 0
-		@estado = "pinche"
 
 	end
 
 	def uno_mas
 
-		if @experiencia < 7
+		if @edad < 50
 
-			@experiencia = @experiencia + 1
+			@edad = @edad + 1
 		
-			if @experiencia == 3
+			if @edad == 44
 
-				@estado = "cocinero"
+				@experiencia = "cocinero"
 
 			end
 
-			if @experiencia >= 3
+			if @edad >= 44
 
 				@contador = @contador + 1
 
 			end
 		else
 		
-			@estado = "jubilado"		
+			@experiencia = "jubilado"		
 
 		end
 
@@ -37,7 +37,7 @@ attr_accessor :experiencia, :contador
 
 	def degustar_uno
 
-		if @estado == "cocinero"
+		if @experiencia == "cocinero"
 
 			if @contador == 0
 
@@ -50,11 +50,11 @@ attr_accessor :experiencia, :contador
 
 			end
 
-		elsif @estado == "pinche"
+		elsif @experiencia == "pinche"
 
 			puts "Sorry, no dishes to taste"
 
-		elsif @estado == "jubilado"
+		elsif @experiencia == "jubilado"
 
 			puts "Sorry, the Chef is retired"
 
@@ -66,19 +66,18 @@ end
 
 
 	@cocinero = Cocinero.new
-	mutex = Mutex.new
 
 	@t1 = Thread.new do
-		for i in 0..10
+		for i in 0..17
 			@cocinero.uno_mas
-			sleep 0.2
+			sleep(rand(0.1))
 		end
 	end
 
 	@t2 = Thread.new do
-		for i in 0..10
+		for i in 0..17
 			@cocinero.degustar_uno
-			sleep 0.2
+			sleep(rand(0.1))
 		end
 	end
 

@@ -21,7 +21,7 @@ RSpec.describe Gema do
 
 	it "Cocinero atributo experiencia" do
 
-		expect(@cocinero.experiencia).to eq(0)
+		expect(@cocinero.experiencia).to eq("pinche")
 
 	end
 
@@ -31,10 +31,16 @@ RSpec.describe Gema do
 
 	end
 
+	it "Cocinero atributo edad" do
+
+		expect(@cocinero.edad).to eq(36)
+
+	end
+
 	it "Método uno_mas que añade un año de experiencia" do
 
 		@cocinero.uno_mas
-		expect(@cocinero.experiencia).to eq(1)
+		expect(@cocinero.edad).to eq(37)
 
 	end
 
